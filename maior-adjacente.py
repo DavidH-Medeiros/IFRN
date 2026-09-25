@@ -8,7 +8,6 @@ while num >= grupo :
     m = num % grupo
 
     prod = 1
-
     while m > 0 : 
         d = m % 10
         prod = prod * d
@@ -16,7 +15,7 @@ while num >= grupo :
 
     if prod > maior :
         maior = prod
-        
+
     num = num // 10
 
 print(maior)
