@@ -1,0 +1,7 @@
+frase = input("Digite uma frase: ")
+
+frase = frase.upper()
+
+print("Quantidade de letras A:", frase.count("A"))
+print("Primeira posição da letra A:", frase.find("A"))
+print("Última posição da letra A:", frase.rfind("A"))
