@@ -43070,13 +43070,17 @@ candidatos="""0718730-0;AABAN VASCONCELOS ZYZZYAG;3;3;1.5;10
 0758980-8;ZULMARA ROMANO GUERREIRO LIRA CABRAL;5.25;3;2.25;21.25
 0625370-9;ZULMIRA GOMES DE ARAUJO;1.5;3.75;0.75;8.75"""
 
+totalcand = 0
 candidatosAP = 0 
+
 for candidado in candidatos.split("\n"):
     dados = candidado.split(";")
-    ##print(dados)
+    totalcand += 1
     if float(dados[2]) >= 2 and float(dados[3]) >= 2 and float(dados[4]) >= 2 and float(dados[5]) >= 10:
         candidatosAP += 1
-print(candidatosAP)
+        
+print(f"Total de candidatos: {totalcand}")
+print(f"Candidatos aprovados: {candidatosAP}")
 
 while True:
     encontrado = False
@@ -43086,21 +43090,12 @@ while True:
         break
     for candidado in candidatos.split("\n"):
         dados = candidado.split(";")
-        if pruc_cand.upper() == dados[1]:
+        if pruc_cand.upper() in dados[1]:
             encontrado = True
-            print(f"Nome: {dados[1]}\nNota 1: {dados[2]}\nNota 2: {dados[3]}\nNota 3: {dados[4]}\nNota Final: {dados[5]}")
+            print(f"Nome: {dados[1]}\nNota final {float(dados[2]) + float(dados[3]) + float(dados[4]) + float(dados[5])}")
             if float(dados[2]) >= 2 and float(dados[3]) >= 2 and float(dados[4]) >= 2 and float(dados[5]) >= 10:
                 print("Aprovado")
             else:
-                print("Reprovado por nota")
+                print("Reprovado")
     if encontrado == False:
         print("Candidato não encontrado")
-
-        
-     
-
-
-
-
-
-   
